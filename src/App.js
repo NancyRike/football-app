@@ -1,29 +1,67 @@
 import React from 'react';
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+ } from 'react-router-dom';
 import './App.css';
-import Home from './pages/homePage.js';
-function App() {
-  return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           My first react project Nancy
-//         </a>
-//       </header>
-//     </div>
-    <Home/>
-    // <p>testing</p>
-    // });
+// import Home from './pages/homePage.js';
+// import Comments from './pages/comments.js';
+// import Chat from './pages/chatpage.js';
 
+
+function App() {
+  return(
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to = "/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/users">Users</Link>
+            </li>
+          </ul>
+        </nav>
+        <switch>
+          <Route path="/about">
+            <About/>
+          </Route>
+          <Route path="/users">
+            <Users/>
+          </Route>
+          <Route path="/">
+            <Home/>
+          </Route>           
+        </switch>
+      </div>
+    </Router>
   );
+
+  // useEffect(()=>{
+  //   console.log("will see me when i render")
+  // },[])
+  // return (
+  //   <>
+  //     {/* <Home/>
+  //   <Comments/>   */}
+  //   </>
+  // );
 }
 export default App;
+function Home(){
+  return <h2>Home</h2>;
+}
+
+function About() {
+  return <h2>About</h2>;  
+}
+
+function Users() {
+  return <h2>Users</h2>;   
+}
