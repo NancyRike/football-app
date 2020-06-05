@@ -1,9 +1,9 @@
 import React from 'react';
 import '../App.css';
 
-function Chat(){
+function TnC (){
     return(
         <button>Chat</button>
     );
 }
-export default Chat;
+export default TnC;
